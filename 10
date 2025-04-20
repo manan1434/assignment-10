@@ -1,0 +1,21 @@
+//Main.java 
+public class Main {  public static void main(String[] args) 
+{  new Thread(new MyThread(1, 2, 300)).start(); 
+new Thread(new MyThread(100, 20, 1000)).start(); 
+    } 
+ } 
+//MyThread.java class MyThread implements Runnable { 
+ protected int init;  protected int increment;  
+ protected int delay; 
+ public MyThread(int init, int increment, int delay) { 
+ this.init = init; 
+ this.increment = increment;  this.delay = delay; 
+    } 
+ public void run() { 
+ try {  for (;;) { 
+                System.out.println(init + " ");                 init += increment; 
+                Thread.sleep(delay); 
+            } 
+        }  catch (InterruptedException e) {} 
+    } 
+ } 
